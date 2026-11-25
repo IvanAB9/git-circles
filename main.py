@@ -1,17 +1,17 @@
 import sys
 from pathlib import Path
 from random import randint
-
+from ui_form import Ui_MainWindow
 from PyQt6 import uic
 from PyQt6.QtGui import QColor, QPainter, QPen
 from PyQt6.QtWidgets import QApplication, QMainWindow
 
 
-class Circles(QMainWindow):
+class Circles(Ui_MainWindow):
     def __init__(self):
         super().__init__()
         # Загружаем интерфейс из файла, лежащего рядом с программой
-        uic.loadUi(Path(__file__).with_name("UI.ui"), self)
+        self.setupUi(self)
         self.circles = []  # список окружностей: (x, y, диаметр)
         self.pushButton.clicked.connect(self.add_circle)
 
@@ -28,9 +28,6 @@ class Circles(QMainWindow):
         painter.setPen(QPen(QColor("yellow"), 4))
         for x, y, d in self.circles:
             painter.drawEllipse(x, y, d, d)
-
-    def new_func(self):
-        print("Добавил фунцию") #Форк сделан, код добавлен
 
 
 if __name__ == "__main__":
