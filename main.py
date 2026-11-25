@@ -29,6 +29,9 @@ class Circles(QMainWindow):
         for x, y, d in self.circles:
             painter.drawEllipse(x, y, d, d)
 
+    def new_func(self):
+        print("Добавил фунцию") #Форк сделан, код добавлен
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
